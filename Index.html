@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>AngularJS Plunker</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
+</head>
+
+<body ng-app="PostApp">
+  <h1 class="title">The Note Making App</h1>
+    
+    <div class="jumbotron" ng-controller="AddPostController">
+
+    <form name="form-group" ng-submit="AddPost()">
+        <div class="list-group-item">
+        <textarea class="list-group-item-text" id="post-title" maxlength="50" ng-model='title'></textarea> <br>
+        <textarea class="list-group-item-text" id='post-content' maxlength="1000" ng-model='content'></textarea>
+        <input type="submit" value="Post">
+            </div>
+    </form>
+        
+        <span ng-repeat="post in savedPosts">
+            <div class="col-md-8">
+                <textarea class="form-control" ng-model="post.title"></textarea>
+                <textarea class="form-control" ng-model="post.content"></textarea>
+                <span  ng-model="post.id"></span>
+                 <input type="button" value="update" ng-click="UpdatePost(post)">
+                <input type="button" value="delete" ng-click="DeletePost(post)">             
+            </div>
+             <br>
+             <br>
+            <br>
+             <br>
+        </span>
+    </div>
+
+   
+      <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<!--    <script src="angular.js"></script>-->
+  <script src="angular.js"></script>
+    <script type="text/javascript" src="Angular1.js"></script>
+    <script src="ngStorage.js"></script>
+</body>
+</html>
